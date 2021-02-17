@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+		function emailCheck()
+		{
+			let value=document.getElementById("no").value;
+			console.log(value)
+			let xhr=new XMLHttpRequest();
+			xhr.open("post","api/check/"+value);
+			xhr.onload=function()
+			{
+				console.log(xhr.response);
+				if(xhr.response=='true')
+					{
+					document.getElementById("lb").style.display="inline"
+					}
+				else{
+					document.getElementById("lb").style.display="none"	
+				}
+			
+			}
+			xhr.send();
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<form action="send" method="post">
+			<input id="no" type="text" name="id_no" onchange="emailCheck()" placeholder="Enter ID_NO"><label id="lb" style="display: none">Card id exist</label><br>
+			<input type="text" name="name" placeholder="Enter name"><br>
+			<input type="password" name="pass" placeholder="Enter Password"><br>
+			<input type="submit" value="Send">
+		</form>
+	</center>
+</body>
+</html>

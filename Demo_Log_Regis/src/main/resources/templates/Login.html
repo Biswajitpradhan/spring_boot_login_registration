@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<h3 th:if=${msg=='false'} th:text="|try again|"></h3>
+		<form action="Login" method="post">
+			<input type="text" name="cardId" placeholder="Enter ID Card No" required="required"><br>
+			<input type="password" name="password" placeholder="Enter password" required><br>
+			<input type="submit" value="Login">
+		</form>
+	</center>
+</body>
+</html>
